@@ -1,92 +1,110 @@
 @import url("https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Lexend+Deca:wght@100..900&display=swap");
 :root {
-  /*## Colors*/
-  /*************************/
-  /*### Primary*/
-  --gold-500: hsl(31, 77%, 52%);
-  --cyan-800: hsl(184, 100%, 22%);
-  --green-950: hsl(179, 100%, 13%);
+	/*## Colors*/
+	/*************************/
+	/*### Primary*/
+	--gold-500: hsl(31, 77%, 52%);
+	--cyan-800: hsl(184, 100%, 22%);
+	--green-950: hsl(179, 100%, 13%);
 
-  /* Neutral */
-  --white: hsl(0, 0%, 100%);
-  --gray: hsl(0, 0%, 95%);
+	/* Neutral */
+	--white: hsl(0, 0%, 100%);
+	--gray: hsl(0, 0%, 95%);
 
-  --ff-heading: "Big Shoulders", sans-serif;
-  --ff-body: "Lexend Deca", sans-serif;
+	--ff-heading: "Big Shoulders", sans-serif;
+	--ff-body: "Lexend Deca", sans-serif;
 
-  --card-text: hsl(from var(--white) h s l / 0.5);
+	--card-text: hsl(from var(--white) h s l / 0.5);
 }
 * {
-  margin-inline: 0;
+	margin-inline: 0;
 }
 html {
-  font-size: 15px;
-  line-height: 1.6;
+	font-size: 15px;
+	line-height: 1.6;
 }
 body {
-  font-family: var(--ff-body);
-  min-block-size: 100%;
-  display: grid;
-  place-content: center;
+	font-family: var(--ff-body);
+	min-block-size: 100%;
+	display: grid;
+	place-content: center;
 }
 
 @layer cards {
-  [data-ride="sedans"] {
-    background-color: var(--gold-500);
-    grid-area: sedans;
-  }
-  [data-ride="suvs"] {
-    background-color: var(--cyan-800);
-    grid-area: suv;
-  }
-  [data-ride="luxury"] {
-    background-color: var(--green-950);
-    grid-area: luxury;
-  }
+	[data-ride="sedans"] {
+		background-color: var(--gold-500);
+		grid-area: sedans;
+	}
+	[data-ride="suvs"] {
+		background-color: var(--cyan-800);
+		grid-area: suv;
+	}
+	[data-ride="luxury"] {
+		background-color: var(--green-950);
+		grid-area: luxury;
+	}
 
-  .card-grid {
-    display: flex;
-    gap: 2rem 0;
-    padding: 2rem;
-    width: 800px;
-  }
+	.card-grid {
+		display: flex;
+		gap: 2rem 0;
+		padding: 2rem;
+		width: 800px;
+	}
 
-  .card {
-    padding: 6rem 2rem 3rem;
-    color: var(--card-text);
-    max-width: 400px;
-  }
+	.card {
+		padding: 6rem 2rem 3rem;
+		color: var(--card-text);
+		max-width: 400px;
+	}
 
-  .card > img {
-    width: 60px;
-  }
-  .card__title {
-    font-size: 2rem;
-    font-family: var(--ff-heading);
-  }
-  .card-info-group {
-    margin-block-end: 4rem;
-  }
+	.card > img {
+		width: 60px;
+	}
+	.card__title {
+		font-size: 2rem;
+		font-family: var(--ff-heading);
+		color: var(--white);
+	}
+	.card-info-group {
+		margin-block-end: 4rem;
+	}
 
-  @layer button {
-    button {
-      border: none;
-      padding: 0.6rem 1.4rem;
-      width: fit-content;
-      border-radius: 999px;
-      font: inherit;
-      font-size: 0.875rem;
-      cursor: pointer;
-      font-weight: 500;
-    }
-    .button[data-button="sedan"] {
-      color: var(--gold-500);
-    }
-    .button[data-button="suv"] {
-      color: var(--cyan-800);
-    }
-    .button[data-button="luxury"] {
-      color: var(--green-950);
-    }
-  }
+	@layer button {
+		button {
+			border: none;
+			padding: 0.6rem 1.4rem;
+			width: fit-content;
+			border-radius: 999px;
+			font: inherit;
+			font-size: 0.875rem;
+			cursor: pointer;
+			font-weight: 500;
+			border: 2px solid transparent;
+			transition: all 0.5ms ease;
+		}
+		.button[data-button="sedan"] {
+			color: var(--gold-500);
+		}
+		.button[data-button="sedan"]:is(:hover, :focus) {
+			background: hsl(from var(--gold-500) h s 62%);
+			color: var(--white);
+			border: 2px solid var(--white);
+		}
+		.button[data-button="suv"] {
+			color: var(--cyan-800);
+		}
+		.button[data-button="suv"]:is(:hover, :focus) {
+			background: hsl(from var(--cyan-800) h s 32%);
+			color: var(--white);
+			border: 2px solid var(--white);
+		}
+		.button[data-button="luxury"] {
+			color: var(--green-950);
+		}
+		.button[data-button="luxury"]:is(:hover, :focus) {
+			background: hsl(from var(--green-950) h s 23%);
+			color: var(--white);
+			border: 2px solid var(--white);
+		}
+	}
 }
